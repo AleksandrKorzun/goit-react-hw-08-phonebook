@@ -1,0 +1,7 @@
+.navLinkItem {
+    color: white;
+    text-decoration: none;
+}
+.navItem:not(:last-child) {
+    margin-right: 20px;
+}
