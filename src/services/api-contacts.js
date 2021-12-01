@@ -15,11 +15,7 @@ export const deleteContactsApi = async (id) => {
     return data
 }
 
-export const fetchSignUp = async () => {
-    const response = await axios.post('/users/signup', {
-        "name": "Korzun",
-        "email": "acrgfgs@mail.com",
-        "password": "examplepassw"
-      })
-      console.log(response)
-}
+// export const fetchSignUp = async (user) => {
+//     const response = await axios.post('/users/signup', user)
+//       console.log(response.data)
+// }
