@@ -8,21 +8,25 @@ const mainRoutes = [
         name: "home",
         path: "/",
         component: <HomePage/>,
+        
     },
     {
         name: "My Contacts",
         path: "/contacts",
-        component: <ContactsPage/>
+        component: <ContactsPage/>,
+        
     },
     {
         name: "LOG IN",
         path: "/login",
         component: <SignUpPage/>,
+        
     },
     {
         name: "SIGN UP",
         path: "/register",
         component: <SignUpPage/>,
+        
     },
 ]
 export default mainRoutes;

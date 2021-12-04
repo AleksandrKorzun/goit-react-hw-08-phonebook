@@ -7,10 +7,6 @@ import { deleteContactOperation } from '../../../redux/contacts/contactsOperatio
 const ContactsListItem = () => {
     const dispatch = useDispatch()
     const contacts = useSelector(getItemsSelector)
-
-    // useEffect(() => {
-    //     dispatch(getContactsOperation())
-    // }, [])
     const filter = useSelector(getFilterSelector)
     const onDeleteContact = (e) => {
         const{id} = e.target

@@ -1,16 +1,23 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { signInError, signInRequest, signInSuccess, signOutError, signOutRequest, signOutSuccess, signUpError, signUpRequest, signUpSuccess } from "./authActions";
+import { getCurrentUserError, getCurrentUserRequest, getCurrentUserSuccess, signInError, signInRequest, signInSuccess, signOutError, signOutRequest, signOutSuccess, signUpError, signUpRequest, signUpSuccess } from "./authActions";
 
 const token = createReducer("", {
-    [signUpSuccess]: (_, action) => action.payload,
-    [signInSuccess]: (_, action) => action.payload
+    [signUpSuccess]: (_, action) => action.payload.token,
+    [signInSuccess]: (_, action) => action.payload.token,
+    [signOutSuccess]: () => "",
 });
-
+const user = createReducer({name:"", email: ""}, {
+    [signUpSuccess]: (_, action) => action.payload.user,
+    [signInSuccess]: (_, action) => action.payload.user,
+    [signOutSuccess]: () => ({name: "", email: ""}),
+    [getCurrentUserSuccess]: (_, action) => action.payload
+})
 
 const error = createReducer("", {
     [signUpError]: (_, action) => action.payload,
     [signInError]: (_, action) => action.payload,
     [signOutError]: (_, action) => action.payload,
+    [getCurrentUserError]: (_, action) => action.payload,
 });
 
 const loader = createReducer(false, {
@@ -23,9 +30,12 @@ const loader = createReducer(false, {
     [signOutRequest]: () => true,
     [signOutSuccess]: () => false,
     [signOutError]: () => false,
+    [getCurrentUserRequest]: () => true,
+    [getCurrentUserError]: () => true,
 })
 
 export const authReducer = combineReducers({
+    user,
     token,
     loader,
     error,

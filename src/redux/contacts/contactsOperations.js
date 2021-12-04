@@ -1,5 +1,8 @@
+import { useSelector } from "react-redux"
 import { deleteContactsApi, getContactsApi, setContactsApi } from "../../services/api-contacts"
+import { tokenSelector } from "../auth/authSelectors"
 import {  getItemsActionCreatorRequest, getItemsActionCreatorSuccess, getItemsActionCreatorError, addItemsActionCreatorRequest, addItemsActionCreatorError, deleteItemActionCreatorRequest, deleteItemActionCreatorError, addItemsActionCreatorSuccess, deleteItemActionCreatorSuccess } from "./contactsActions"
+
 
 export const getContactsOperation = () => async (dispatch, getState) => {
     dispatch(getItemsActionCreatorRequest())

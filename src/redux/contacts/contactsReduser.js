@@ -3,8 +3,8 @@ import { combineReducers } from "redux";
 import { addItemsActionCreatorError, addItemsActionCreatorRequest, addItemsActionCreatorSuccess, deleteItemActionCreatorError, deleteItemActionCreatorRequest, deleteItemActionCreatorSuccess, getItemsActionCreatorError, getItemsActionCreatorRequest, getItemsActionCreatorSuccess, setFilterActionCreator } from "./contactsActions";
 
 const itemsReducer = createReducer([], {
-    [addItemsActionCreatorRequest]: (state, action) => [...state, action.payload],
-    [deleteItemActionCreatorSuccess]: (state, action) => state.filter(contact => contact.id !== Number(action.payload)),
+    [addItemsActionCreatorSuccess]: (state, action) => [...state, action.payload],
+    [deleteItemActionCreatorSuccess]: (state, action) => state.filter(contact => contact.id !== action.payload),
     [getItemsActionCreatorSuccess]: (_, action) => [...action.payload],
 
 })

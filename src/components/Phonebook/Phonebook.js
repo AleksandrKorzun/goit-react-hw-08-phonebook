@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import PhonebookInput from './PhoneBookInput/PhonebookInput';
 import { useDispatch, useSelector } from "react-redux";
 import { getItemsSelector } from '../../redux/contacts/contactsSelectors';
-import { addContactOperation, getContactsOperation} from '../../redux/contacts/contactsOperations';
+import { addContactOperation} from '../../redux/contacts/contactsOperations';
 
 const Phonebook = () => {
     const dispatch = useDispatch()
@@ -10,9 +10,7 @@ const Phonebook = () => {
         name: '',
         number: ''
     });
-    useEffect(() => {
-        dispatch(getContactsOperation())
-    }, [dispatch])
+    
     const items = useSelector(getItemsSelector)
     const onChangeInpuntName = (e) => {
         const {name, value} = e.target
